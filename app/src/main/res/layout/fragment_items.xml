@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:spanCount="2"
         tools:itemCount="9"
-        tools:listitem="@layout/item_thumb"
+        tools:listitem="@layout/item_merged"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

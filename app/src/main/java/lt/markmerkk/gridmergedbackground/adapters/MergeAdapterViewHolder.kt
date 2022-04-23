@@ -5,11 +5,11 @@ import android.view.ViewGroup
 import androidx.annotation.DrawableRes
 import androidx.recyclerview.widget.RecyclerView
 import lt.markmerkk.gridmergedbackground.R
-import lt.markmerkk.gridmergedbackground.databinding.ItemThumbBinding
+import lt.markmerkk.gridmergedbackground.databinding.ItemMergedBinding
 import lt.markmerkk.gridmergedbackground.toViewClickListenerOrNull
 
 class MergeAdapterViewHolder<T : BasicAdapterItem>(
-    private val binding: ItemThumbBinding,
+    private val binding: ItemMergedBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(
@@ -35,17 +35,17 @@ class MergeAdapterViewHolder<T : BasicAdapterItem>(
         isFirstColumn: Boolean,
     ): Int {
         return when {
-            isFirstRow && isFirstColumn -> R.drawable.shape_ll_product_thumb_row_column_first
-            isFirstRow && !isFirstColumn -> R.drawable.shape_ll_product_thumb_row_column_last
-            isFirstColumn -> R.drawable.shape_ll_product_thumb_column_first
-            else -> R.drawable.shape_ll_product_thumb_column_last
+            isFirstRow && isFirstColumn -> R.drawable.shape_ll_merge_row_column_first
+            isFirstRow && !isFirstColumn -> R.drawable.shape_ll_merge_row_column_last
+            isFirstColumn -> R.drawable.shape_ll_merge_column_first
+            else -> R.drawable.shape_ll_merge_column_last
         }
     }
 
     companion object {
         fun <T : BasicAdapterItem> create(viewGroup: ViewGroup): MergeAdapterViewHolder<T> {
             return MergeAdapterViewHolder(
-                binding = ItemThumbBinding.inflate(
+                binding = ItemMergedBinding.inflate(
                     LayoutInflater.from(viewGroup.context),
                     viewGroup,
                     false
