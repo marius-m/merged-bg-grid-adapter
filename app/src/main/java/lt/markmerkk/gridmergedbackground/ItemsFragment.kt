@@ -9,12 +9,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import lt.markmerkk.gridmergedbackground.adapters.BasicBgAdapter
-import lt.markmerkk.gridmergedbackground.adapters.ItemBoundableAdapter
+import lt.markmerkk.gridmergedbackground.adapters.BasicBgPaddingAdapter
 import lt.markmerkk.gridmergedbackground.adapters.MergeAdapter
 import lt.markmerkk.gridmergedbackground.databinding.FragmentItemsBinding
-import lt.markmerkk.gridmergedbackground.entities.Item
 import lt.markmerkk.gridmergedbackground.entities.AdapterItem
 import lt.markmerkk.gridmergedbackground.entities.AdapterType
+import lt.markmerkk.gridmergedbackground.entities.Item
 import timber.log.Timber
 
 /**
@@ -64,7 +64,7 @@ class ItemsFragment : Fragment() {
         )
         val adapter = when (adapterType) {
             AdapterType.BASIC -> BasicBgAdapter<AdapterItem>()
-            AdapterType.BASIC_W_PADDINGS -> BasicBgAdapter<AdapterItem>()
+            AdapterType.BASIC_W_PADDINGS -> BasicBgPaddingAdapter<AdapterItem>()
             AdapterType.MERGED -> MergeAdapter<AdapterItem>(gridSpanSize = gridSize)
         }
         binding.recycler.layoutManager = GridLayoutManager(

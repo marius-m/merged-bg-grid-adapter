@@ -39,6 +39,7 @@ class HomeFragment : Fragment() {
         val gridSizes = listOf(1, 2, 3, 4)
         val itemCounts = listOf(1, 2, 3, 4, 5, 15)
         setupSection(requireContext(), AdapterType.BASIC, gridSizes, itemCounts)
+        setupSection(requireContext(), AdapterType.BASIC_W_PADDINGS, gridSizes, itemCounts)
         setupSection(requireContext(), AdapterType.MERGED, gridSizes, itemCounts)
     }
 
@@ -58,8 +59,8 @@ class HomeFragment : Fragment() {
             }
             setupButtons(
                 c = c,
-                title = "Adapter: ${adapterType.name}",
-                subtitle = "Grid: $gridSize",
+                title = "Adapter: ${adapterType.title}",
+                subtitle = "Grid size: $gridSize",
                 gridConfigs,
             )
         }
