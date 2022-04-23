@@ -22,4 +22,6 @@
     <style name="Theme.GridMergedBackground.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="Theme.GridMergedBackground.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <style name="Theme.GridMergedBackground.Button" parent="Widget.MaterialComponents.Button" />
 </resources>
