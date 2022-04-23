@@ -13,7 +13,6 @@ import com.google.android.material.button.MaterialButton
 import lt.markmerkk.gridmergedbackground.databinding.FragmentHomeBinding
 import lt.markmerkk.gridmergedbackground.entities.Item
 import lt.markmerkk.gridmergedbackground.entities.ItemBundle
-import timber.log.Timber
 
 class HomeFragment : Fragment() {
 

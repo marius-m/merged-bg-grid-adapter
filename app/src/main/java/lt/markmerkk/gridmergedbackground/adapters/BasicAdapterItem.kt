@@ -1,6 +1,6 @@
 package lt.markmerkk.gridmergedbackground.adapters
 
-interface ThumbItem {
+interface BasicAdapterItem {
     val id: Int
     val title: String
 }

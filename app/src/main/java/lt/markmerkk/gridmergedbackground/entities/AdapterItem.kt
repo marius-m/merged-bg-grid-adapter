@@ -1,10 +1,10 @@
 package lt.markmerkk.gridmergedbackground.entities
 
-import lt.markmerkk.gridmergedbackground.adapters.ThumbItem
+import lt.markmerkk.gridmergedbackground.adapters.BasicAdapterItem
 
-class ItemAsThumb(
+class AdapterItem(
     override val id: Int,
     val item: Item,
-) : ThumbItem {
+) : BasicAdapterItem {
     override val title: String = item.title
 }

@@ -8,7 +8,7 @@ import lt.markmerkk.gridmergedbackground.R
 import lt.markmerkk.gridmergedbackground.databinding.ItemThumbBinding
 import lt.markmerkk.gridmergedbackground.toViewClickListenerOrNull
 
-class ThumbnailViewHolder<T : ThumbItem>(
+class MergeAdapterViewHolder<T : BasicAdapterItem>(
     private val binding: ItemThumbBinding,
 ) : RecyclerView.ViewHolder(binding.root) {
 
@@ -43,8 +43,8 @@ class ThumbnailViewHolder<T : ThumbItem>(
     }
 
     companion object {
-        fun <T : ThumbItem> create(viewGroup: ViewGroup): ThumbnailViewHolder<T> {
-            return ThumbnailViewHolder(
+        fun <T : BasicAdapterItem> create(viewGroup: ViewGroup): MergeAdapterViewHolder<T> {
+            return MergeAdapterViewHolder(
                 binding = ItemThumbBinding.inflate(
                     LayoutInflater.from(viewGroup.context),
                     viewGroup,

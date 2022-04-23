@@ -8,10 +8,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
-import lt.markmerkk.gridmergedbackground.adapters.ThumbnailAdapter
+import lt.markmerkk.gridmergedbackground.adapters.MergeAdapter
 import lt.markmerkk.gridmergedbackground.databinding.FragmentItemsBinding
 import lt.markmerkk.gridmergedbackground.entities.Item
-import lt.markmerkk.gridmergedbackground.entities.ItemAsThumb
+import lt.markmerkk.gridmergedbackground.entities.AdapterItem
 import timber.log.Timber
 
 /**
@@ -57,7 +57,7 @@ class ItemsFragment : Fragment() {
             gridSize,
             items,
         )
-        val adapter = ThumbnailAdapter<ItemAsThumb>(
+        val adapter = MergeAdapter<AdapterItem>(
             gridSpanSize = gridSize,
         )
         binding.recycler.layoutManager = GridLayoutManager(
@@ -66,7 +66,7 @@ class ItemsFragment : Fragment() {
         )
         binding.recycler.adapter = adapter
         adapter.items = items.mapIndexed { index, item ->
-            ItemAsThumb(
+            AdapterItem(
                 id = index,
                 item = item,
             )
