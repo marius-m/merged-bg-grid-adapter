@@ -1,6 +1,6 @@
 Sample project shows an example how to use merged background when using `RecyclerView` and `GridLayoutManager`.
 
-![img](docs/imgs/606DEB9F-4919-4B14-8395-13A723FE0235.png)
+![img](docs/imgs/3E31E8F1-1ECE-4146-BE52-299144245971.png)
 
 -   Sample in how to use regular backgrounds
 -   Sample in how to use regular backgrounds + paddings
