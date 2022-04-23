@@ -1,12 +1,17 @@
 package lt.markmerkk.gridmergedbackground
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.GridLayoutManager
+import lt.markmerkk.gridmergedbackground.adapters.ThumbnailAdapter
 import lt.markmerkk.gridmergedbackground.databinding.FragmentItemsBinding
+import lt.markmerkk.gridmergedbackground.entities.Item
+import lt.markmerkk.gridmergedbackground.entities.ItemAsThumb
 import timber.log.Timber
 
 /**
@@ -30,15 +35,41 @@ class ItemsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        Timber.tag("TEST").d(
-            "GridSize: %d, Items: %s",
-            args.gridSize,
-            args.itemBundle.toString()
+        setupAdapter(
+            context = requireContext(),
+            gridSize = args.gridSize,
+            items = args.itemBundle.items,
         )
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    private fun setupAdapter(
+        context: Context,
+        gridSize: Int,
+        items: List<Item>,
+    ) {
+        Timber.tag("TEST").d(
+            "setupAdapter(gridSize: %d, items: %s)",
+            gridSize,
+            items,
+        )
+        val adapter = ThumbnailAdapter<ItemAsThumb>(
+            gridSpanSize = gridSize,
+        )
+        binding.recycler.layoutManager = GridLayoutManager(
+            context,
+            gridSize,
+        )
+        binding.recycler.adapter = adapter
+        adapter.items = items.mapIndexed { index, item ->
+            ItemAsThumb(
+                id = index,
+                item = item,
+            )
+        }
     }
 }
