@@ -6,11 +6,10 @@ import lt.markmerkk.gridmergedbackground.autoNotify
 import kotlin.properties.Delegates
 
 class BasicBgAdapter<T : BasicAdapterItem>(
-    private val gridSpanSize: Int,
     private val itemClickListener: ((BasicAdapterItem) -> Unit)? = null,
-) : RecyclerView.Adapter<BasicBgAdapterViewHolder<T>>() {
+) : RecyclerView.Adapter<BasicBgAdapterViewHolder<T>>(), ItemBoundableAdapter<T> {
 
-    var items: List<T> by Delegates.observable(emptyList()) { _, oldList, newList ->
+    override var items: List<T> by Delegates.observable(emptyList()) { _, oldList, newList ->
         autoNotify(oldList, newList) { o, n -> o.id == n.id }
     }
 

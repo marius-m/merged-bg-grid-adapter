@@ -4,4 +4,8 @@ import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
 
 @Parcelize
-data class ItemBundle(val items: List<Item>): Parcelable
+data class ItemBundle(
+    val gridSize: Int,
+    val adapterType: AdapterType,
+    val items: List<Item>,
+) : Parcelable

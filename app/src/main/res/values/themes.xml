@@ -24,4 +24,7 @@
     <style name="Theme.GridMergedBackground.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="Theme.GridMergedBackground.Button" parent="Widget.MaterialComponents.Button" />
+    <style name="Theme.GridMergedBackground.TextView" parent="Widget.MaterialComponents.TextView" />
+    <style name="Theme.GridMergedBackground.Headline1" parent="TextAppearance.MaterialComponents.Headline3" />
+    <style name="Theme.GridMergedBackground.Headline2" parent="TextAppearance.MaterialComponents.Headline4" />
 </resources>

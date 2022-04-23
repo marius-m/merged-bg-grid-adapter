@@ -8,9 +8,9 @@ import kotlin.properties.Delegates
 class MergeAdapter<T : BasicAdapterItem>(
     private val gridSpanSize: Int,
     private val itemClickListener: ((BasicAdapterItem) -> Unit)? = null,
-) : RecyclerView.Adapter<MergeAdapterViewHolder<T>>() {
+) : RecyclerView.Adapter<MergeAdapterViewHolder<T>>(), ItemBoundableAdapter<T> {
 
-    var items: List<T> by Delegates.observable(emptyList()) { _, oldList, newList ->
+    override var items: List<T> by Delegates.observable(emptyList()) { _, oldList, newList ->
         autoNotify(oldList, newList) { o, n -> o.id == n.id }
     }
 

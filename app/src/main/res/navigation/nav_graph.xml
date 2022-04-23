@@ -22,11 +22,6 @@
         tools:layout="@layout/fragment_items">
 
         <argument
-            android:name="gridSize"
-            android:defaultValue="2"
-            app:argType="integer" />
-
-        <argument
             android:name="itemBundle"
             app:argType="lt.markmerkk.gridmergedbackground.entities.ItemBundle" />
     </fragment>

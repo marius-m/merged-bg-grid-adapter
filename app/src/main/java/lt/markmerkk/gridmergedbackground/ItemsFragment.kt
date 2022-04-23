@@ -8,10 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
+import lt.markmerkk.gridmergedbackground.adapters.BasicBgAdapter
+import lt.markmerkk.gridmergedbackground.adapters.ItemBoundableAdapter
 import lt.markmerkk.gridmergedbackground.adapters.MergeAdapter
 import lt.markmerkk.gridmergedbackground.databinding.FragmentItemsBinding
 import lt.markmerkk.gridmergedbackground.entities.Item
 import lt.markmerkk.gridmergedbackground.entities.AdapterItem
+import lt.markmerkk.gridmergedbackground.entities.AdapterType
 import timber.log.Timber
 
 /**
@@ -37,7 +40,8 @@ class ItemsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setupAdapter(
             context = requireContext(),
-            gridSize = args.gridSize,
+            gridSize = args.itemBundle.gridSize,
+            adapterType = args.itemBundle.adapterType,
             items = args.itemBundle.items,
         )
     }
@@ -50,6 +54,7 @@ class ItemsFragment : Fragment() {
     private fun setupAdapter(
         context: Context,
         gridSize: Int,
+        adapterType: AdapterType,
         items: List<Item>,
     ) {
         Timber.tag("TEST").d(
@@ -57,9 +62,11 @@ class ItemsFragment : Fragment() {
             gridSize,
             items,
         )
-        val adapter = MergeAdapter<AdapterItem>(
-            gridSpanSize = gridSize,
-        )
+        val adapter = when (adapterType) {
+            AdapterType.BASIC -> BasicBgAdapter<AdapterItem>()
+            AdapterType.BASIC_W_PADDINGS -> BasicBgAdapter<AdapterItem>()
+            AdapterType.MERGED -> MergeAdapter<AdapterItem>(gridSpanSize = gridSize)
+        }
         binding.recycler.layoutManager = GridLayoutManager(
             context,
             gridSize,
